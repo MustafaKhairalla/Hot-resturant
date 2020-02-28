@@ -46,13 +46,16 @@ app.get("/waitlist",(req,res)=> {
     res.sendfile(path.join(__dirname, "waitlist.html"))
 });
 
+app.get("/makereservation", (req,res)=>{
+    res.sendfile(path.join(__dirname, "makereservation.html"))
+});
 
 
-app.post("/api/viewtable", function (req,res){
+app.post("/api/makeserveration", function (req,res){
     var newReservation = req.body;
 
     console.log(newReservation);
-
+    
     if (currentTables.length < tableLimit){
         currentTables.push(newReservation);
     }

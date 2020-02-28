@@ -15,6 +15,55 @@
     />
     <link href="style.css" type="text/css" rel="stylesheet" >
     <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+        $.get("/api/viewtable" , function(data){
+            if (data){
+                
+                //$("#name").text(data.name);
+                $("reservationsDiv").append("<div id='card'></div>");
+                $("card").append("<div id='card-header'></div>");
+                $("card-header").append("<h3 id='name'></h3>")
+                $("#name").text(data.name);
+                $("card").append("<div id='card-body'></div>");
+                $("card-body").append("<li id='partysize'></li>");
+                $("card-body").append("<li id='phone'></li>");
+                $("card-body").append("<li id='email'></li>");
+                $("#partysize").text(data.partysize);
+                $("#phone").text(data.phone);
+                $("#email").text(data.email);
+            }
+        })
+    </script>
+    
+    
+    
+    
+    
+    <!-- <script type="text/javascript">
+        $("#search-btn").on("click", function() {
+          var searchedCharacter = $("#character-search").val().trim();
+    
+          // Using a RegEx Pattern to remove spaces from searchedCharacter
+          // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+          searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+    
+          $.get("/api/characters/" + searchedCharacter, function(data) {
+            console.log(data);
+            if (data) {
+              $("#stats").show();
+              $("#name").text(data.name);
+              $("#role").text(data.role);
+              $("#age").text(data.age);
+              $("#force-points").text(data.forcePoints);
+            } else {
+              $("#name").text(
+                "The force is not strong with this one. Your character was not found.");
+              $("#stats").hide();
+            }
+          });
+        });
+    
+      </script> -->
 </head>
 <body>
 
@@ -46,7 +95,9 @@
         <div id="reservationsDiv">
             <h3>Current Reservations</h3>
             <div class="card">
-                <div class="card-header"></div>
+                <div class="card-header">
+                    
+                </div>
                 <div class="card-body"></div>
             </div>
         </div>
