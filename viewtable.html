@@ -16,8 +16,12 @@
     <script type="text/javascript">
         $.get("/api/viewtable" , function(data){
             if (data){
-                $("#name").text(data.name);
-                $("#partsize").text(data.name);
+                $("card-header").text(data.name);
+                //$("#name").text(data.name);
+                $("card-body").append("<li id='partysize'></li>");
+                $("card-body").append("<li id='phone'></li>");
+                $("card-body").append("<li id='email'></li>");
+                $("#partysize").text(data.name);
                 $("#phone").text(data.name);
                 $("#email").text(data.name);
             }
@@ -83,7 +87,9 @@
         <div id="reservationsDiv">
             <h3>Current Reservations</h3>
             <div class="card">
-                <div class="card-header"></div>
+                <div class="card-header">
+                    
+                </div>
                 <div class="card-body"></div>
             </div>
         </div>
