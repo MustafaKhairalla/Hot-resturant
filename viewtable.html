@@ -13,6 +13,46 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+    <script type="text/javascript">
+        $.get("/api/viewtable" , function(data){
+            if (data){
+                $("#name").text(data.name);
+                $("#partsize").text(data.name);
+                $("#phone").text(data.name);
+                $("#email").text(data.name);
+            }
+        })
+    </script>
+    
+    
+    
+    
+    
+    <!-- <script type="text/javascript">
+        $("#search-btn").on("click", function() {
+          var searchedCharacter = $("#character-search").val().trim();
+    
+          // Using a RegEx Pattern to remove spaces from searchedCharacter
+          // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+          searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+    
+          $.get("/api/characters/" + searchedCharacter, function(data) {
+            console.log(data);
+            if (data) {
+              $("#stats").show();
+              $("#name").text(data.name);
+              $("#role").text(data.role);
+              $("#age").text(data.age);
+              $("#force-points").text(data.forcePoints);
+            } else {
+              $("#name").text(
+                "The force is not strong with this one. Your character was not found.");
+              $("#stats").hide();
+            }
+          });
+        });
+    
+      </script> -->
 </head>
 <body>
 
