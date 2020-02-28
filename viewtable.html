@@ -15,22 +15,24 @@
     />
     <link href="style.css" type="text/css" rel="stylesheet" >
     <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
     <script type="text/javascript">
         $.get("/api/viewtable" , function(data){
             if (data){
-                
+                console.log(data[0].name);
                 //$("#name").text(data.name);
-                $("reservationsDiv").append("<div id='card'></div>");
-                $("card").append("<div id='card-header'></div>");
-                $("card-header").append("<h3 id='name'></h3>")
-                $("#name").text(data.name);
-                $("card").append("<div id='card-body'></div>");
-                $("card-body").append("<li id='partysize'></li>");
-                $("card-body").append("<li id='phone'></li>");
-                $("card-body").append("<li id='email'></li>");
-                $("#partysize").text(data.partysize);
-                $("#phone").text(data.phone);
-                $("#email").text(data.email);
+                $(".reservationsDiv").append("<div id='card'></div>");
+                $(".card").append("<div id='card-header'></div>");
+                $(".card-header").append("<h3 id='name'></h3>")
+                $("#name").text(data[0].name);
+                $(".card").append("<div id='card-body'></div>");
+                $(".card-body").append("<li id='partysize'></li>");
+                $(".card-body").append("<li id='phone'></li>");
+                $(".card-body").append("<li id='email'></li>");
+                $("#partysize").text(data[0].partysize);
+                $("#phone").text(data[0].phone);
+                $("#email").text(data[0].email);
             }
         })
     </script>
@@ -78,11 +80,11 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <a class="btn btn-danger align-center" href="makereservation.html" role="button">
+                <a class="btn btn-danger align-center" href="/makereservation" role="button">
                     <i class="fas fa-utensils"></i>
                     Make a reservation!
                 </a>
-                <a class="btn btn-success align-center" href="index.html" role="button"><i class="fas fa-globe-europe"></i>
+                <a class="btn btn-success align-center" href="/" role="button"><i class="fas fa-globe-europe"></i>
                 </a>
             </div>
         </div>
