@@ -16,14 +16,19 @@
     <script type="text/javascript">
         $.get("/api/viewtable" , function(data){
             if (data){
-                $("card-header").text(data.name);
+                
                 //$("#name").text(data.name);
+                $("reservationsDiv").append("<div id='card'></div>");
+                $("card").append("<div id='card-header'></div>");
+                $("card-header").append("<h3 id='name'></h3>")
+                $("#name").text(data.name);
+                $("card").append("<div id='card-body'></div>");
                 $("card-body").append("<li id='partysize'></li>");
                 $("card-body").append("<li id='phone'></li>");
                 $("card-body").append("<li id='email'></li>");
-                $("#partysize").text(data.name);
-                $("#phone").text(data.name);
-                $("#email").text(data.name);
+                $("#partysize").text(data.partysize);
+                $("#phone").text(data.phone);
+                $("#email").text(data.email);
             }
         })
     </script>
